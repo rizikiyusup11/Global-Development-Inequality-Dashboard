@@ -18,6 +18,15 @@ select option {
   background-color: #ffffff !important;
   color: #000000 !important;
 }
+
+/* Memperbaiki huruf j, g, p, y yang terpotong & font gepeng */
+h1, .sb-title, .splash-title, .card-title, .header-tagline {
+  line-height: normal !important;
+  padding-bottom: 4px !important;
+  overflow: visible !important;
+  flex-shrink: 0 !important; /* Mencegah huruf terjepit oleh flexbox */
+  height: auto !important; /* Mencegah teks gepeng akibat tinggi elemen yang kaku */
+}
 </style>
 </head>
 <body>
@@ -63,8 +72,8 @@ select option {
   <hr class="sb-div">
   <div class="sb-sec">
     <div class="sb-lbl"><i class="bi bi-calendar-event"></i> Tahun Analisis</div>
-    <div class="yr-disp" id="yr-disp">2020</div>
-    <input type="range" id="filter-year" min="2000" max="2023" value="2020" step="1">
+    <div class="yr-disp" id="yr-disp">2024</div>
+    <input type="range" id="filter-year" min="2000" max="2024" value="2024" step="1">
   </div>
   <div class="sb-sec">
     <div class="sb-lbl"><i class="bi bi-geo-alt"></i> Kawasan / Benua</div>
@@ -98,7 +107,7 @@ select option {
   <div class="hero-banner">
     <div class="hero-text">
       <h1>Perjalanan Pembangunan Dunia</h1>
-      <p>✈ Data Ekonomi &amp; Sosial · 2000–2023 · World Bank Atlas Method</p>
+      <p>✈ Data Ekonomi &amp; Sosial · 2000–2024 · World Bank Atlas Method</p>
     </div>
     <div class="hero-plane">✈</div>
     <div class="hero-stats">
@@ -684,7 +693,7 @@ function setupCountrySel(){
 function setupSidebar(){
   const sl=document.getElementById('filter-year');
   sl.min=allYears[0]; sl.max=allYears[allYears.length-1];
-  sl.value=Math.min(2020,allYears[allYears.length-1]);
+  sl.value=Math.min(2024,allYears[allYears.length-1]);
   document.getElementById('yr-disp').textContent=sl.value;
   const rsel=document.getElementById('filter-region');
   allRegions.forEach(r=>{ const o=document.createElement('option'); o.value=o.textContent=r; rsel.appendChild(o); });
